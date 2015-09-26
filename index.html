@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>SpyFall</title>
+	<link rel="stylesheet" type="text/css" href="css/styles.css">
+</head>
+<body>
+	<div id="wrapper">
+		<h1>SpyFall v1</h1>
+		<select id="playerNum">
+		  <option value="3">3 players</option>
+		  <option value="4">4 players</option>
+		  <option value="5">5 players</option>
+		  <option value="6">6 players</option>
+		  <option value="7">7 players</option>
+		  <option value="8">8 players</option>
+		</select>
+		<select id="positionNum">
+		  <option value="pos1">position 1</option>
+		  <option value="pos2">position 2</option>
+		  <option value="pos3">position 3</option>
+		  <option value="pos4">position 4</option>
+		  <option value="pos5">position 5</option>
+		  <option value="pos6">position 6</option>
+		  <option value="pos7">position 7</option>
+		  <option value="pos8">position 8</option>
+		</select>
+		<input type="text" id="seed" placeholder="seed" size="8" autofocus>
+		<button onclick="fire()">Get Secret</button>
+	</div>
+</body>	
+<script src="js/index.js"></script>
+<script src="js/seedrandom.js"></script>
+</html>
