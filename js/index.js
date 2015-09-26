@@ -26,16 +26,53 @@ var data = [
 	"University"
 ];
 //get input
-var playerNumSelector = document.getElementById("playerNum");
-var playerNum = playerNumSelector.options[playerNumSelector.selectedIndex].value;
-var positionNumSelector = document.getElementById("positionNum");
-var positionNum = playerNumSelector.options[playerNumSelector.selectedIndex].value;
-var seed = document.getElementById("seed").value;
+var playerNumSelector, 
+	playerNum, 
+	positionNumSelector, 
+	positionNum, 
+	seed,
+	players;
+
+var SECRET_LOCATION;
+var SPY = "You are the Spy."
 
 function fire(){
-
-	
-	//set random seed
+	getValues();
 	Math.seedrandom(seed);
+	var location = data[Math.floor(Math.random() * data.length)];
+	var spyPosition = Math.floor(Math.random() * playerNum) + 1;
+	if (window.confirm("Are sure you are in position '"+positionNum+"'?")){
+		if(positionNum + "" === spyPosition + ""){
+			window.confirm(SPY);
+		} else {
+			window.confirm("Location = '"+location+"'.");
+		}
+		if(positionNum < playerNum){
+			positionNumSelector.selectedIndex = positionNum++;
+		} else {
+			positionNumSelector.selectedIndex = 0;
+		}
+		
+	}
+
+	console.log(positionNum +""+ spyPosition);
 
 }
+function getValues(){
+	playerNumSelector = document.getElementById("playerNum");
+	playerNum = playerNumSelector.options[playerNumSelector.selectedIndex].value;
+	positionNumSelector = document.getElementById("positionNum");
+	positionNum = positionNumSelector.options[positionNumSelector.selectedIndex].value;
+	seed = document.getElementById("seed").value;	
+}
+
+//enable pressing 'Enter' on seed field
+document.getElementById('seed').onkeypress = function(e){
+    if (!e) e = window.event;
+    var keyCode = e.keyCode || e.which;
+    if (keyCode == '13'){
+      // Enter pressed
+      fire();
+      return false;
+    }
+};
