@@ -19,6 +19,7 @@ button {
 	width: 70%;
 	height: 100px;
 	margin-top: 10px;
+	font-size: 40px;
 }
 html, body {
     width: 100%;
@@ -33,4 +34,7 @@ body>div {
     display: table-cell; 
     text-align: center; /* horizontal */
     vertical-align: middle; /* vertical */
+}
+h1 {
+	font-size: 60px;
 }
