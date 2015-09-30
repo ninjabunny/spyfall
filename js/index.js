@@ -25,27 +25,27 @@ var data = [
 	"Theater",
 	"University"
 ];
-//get input
-var playerNumSelector, 
-	playerNum, 
-	positionNumSelector, 
-	positionNum, 
-	seed,
-	players;
 
-var SECRET_LOCATION;
-var SPY = "You are the Spy."
+var 	loc;
+
+window.onload = function(){
+	restart();
+}
+
+function newGame(){
+	if (window.confirm("Are sure you want start a new game?")){
+		restart();
+	}
+}
 
 function fieldOp(){
-	seed = document.getElementById("seed").value;
-	Math.seedrandom(seed);
-	var location = data[Math.floor(Math.random() * data.length)];
-	alert("Secret location: '"+location+"'.");
-}
-function getValues(){
-	
+	alert("Secret location: '"+loc+"'.");
 }
 
 function spy(){
 	alert("Objective: Figure out the location!");
+}
+
+function restart(){
+	 loc = data[Math.floor(Math.random() * data.length)];
 }
